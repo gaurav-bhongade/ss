@@ -136,7 +136,7 @@ def update_pipe_record(request, id):
 
             pipe.save()
             messages.success(request, 'Pipe Laying Record Updated Successfully...!')
-            return redirect('pipe_laying_list')
+            return redirect('pipe_details_list')
 
         except Exception as e:
             print(f"Error updating Pipe Laying Record: {e}")
