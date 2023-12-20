@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site List</title>
+</head>
+<body>
+    <h2>Site List</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for site in sites %}
+            <tr>
+                <td>{{ site.id }}</td>
+                <td>{{ site.name }}</td>
+                <td>{{ site.location }}</td>
+                <td><a href="">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
