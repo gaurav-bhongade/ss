@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipe Laying Details List</title>
+</head>
+<body>
+    <h2>Pipe Laying Details List</h2>
+
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Label</th>
+                <th>Start Node</th>
+                <th>Stop Node</th>
+                <th>Length (m)</th>
+                <th>Diameter (ID)</th>
+                <th>Diameter (OD)</th>
+                <th>Material</th>
+                <th>Laying Length</th>
+                <th>Balance Laying</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for pipe in pipes %}
+            <tr>
+                <td>{{ pipe.label }}</td>
+                <td>{{ pipe.start_node }}</td>
+                <td>{{ pipe.stop_node }}</td>
+                <td>{{ pipe.length }}</td>
+                <td>{{ pipe.diameter_id }}</td>
+                <td>{{ pipe.diameter_od }}</td>
+                <td>{{ pipe.material }}</td>
+                <td>{{ pipe.laying_length }}</td>
+                <td>{{ pipe.balance_laying }}</td>
+                <td><a href="{% url 'update_pipe_record' pipe.id %}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

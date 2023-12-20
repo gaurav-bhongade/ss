@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Site</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Site Details</h2>
+
+        <form method="post" action="{% url 'save_site' %}">
+            {% csrf_token %}
+
+            <div>
+                <span class="details">{{ result }}</span>
+            </div>
+
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Name<span style="color: red"> *</span></span>
+                    <input type="text" placeholder="Enter Site Name" name="name" id="name" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Location<span style="color: red"> *</span></span>
+                    <input type="text" placeholder="Enter Site Location" name="location" id="location" required>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Save Site Details">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
